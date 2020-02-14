@@ -10,12 +10,12 @@ function mostrar()
 	numeroRandom = Math.floor(Math.random()* (max-min))+min;
 	//Genero el número RANDOM entre 1 y 10 
 	if(numeroRandom > 8){
-		alert(numeroRandom+" su nota es EXCELENTE");
+		alert("Su nota es: "+numeroRandom+". EXCELENTE.");
 	} else {
-		if(numeroRandom > 4){
-			alert(numeroRandom+" con esta nota APROBÓ");
+		if(numeroRandom > 3){
+			alert("Su nota es: "+numeroRandom+". APROBÓ.");
 		} else {
-			alert(numeroRandom+" Vamos, la proxima se puede");
+			alert("Su nota es: "+numeroRandom+". Vamos, la proxima se puede.");
 		}
 	}
 	
