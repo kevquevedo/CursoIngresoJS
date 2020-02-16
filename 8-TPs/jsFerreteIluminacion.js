@@ -14,22 +14,60 @@ function CalcularPrecio ()
     var precioLampara;
     var marcaLampara;
     var descuento;
+    var importeTotal;
+    var importeFinal;
+    var ingresoBruto;
 
     precioLampara = 35;
     cantidadLampara = document.getElementById("Cantidad").value;
     marcaLampara = document.getElementById("Marca").value;
+    cantidadLampara=parseInt(cantidadLampara);
 
-    if(cantidadLampara >= 6){
-            descuento=0.5;
-        } else {
-            if(cantidadLampara == 5 && marcaLampara == "ArgentinaLuz"){
+    if(cantidadLampara>=6){
+        descuento=0.5;
+    } else {
+        if(cantidadLampara==5){
+            if(marcaLampara=="ArgentinaLuz"){
                 descuento=0.6;
             } else {
-                if(cantidadLampara == 5){
-                    descuento=0.7;
-                } 
+                descuento=0.7;
+            }
+        } else {
+            if(cantidadLampara==4){
+                if(marcaLampara=="ArgentinaLuz"||marcaLampara=="FelipeLamparas"){
+                    descuento=0.75;
+                } else {
+                    descuento=0.8;
+                }
+            } else {
+                if(cantidadLampara==3){
+                    if(marcaLampara=="ArgentinaLuz"){
+                        descuento=0.85;
+                    } else {
+                        if(marcaLampara=="FelipeLamparas"){
+                            descuento=0.9;
+                        } else {
+                            if(marcaLampara!="ArgentinaLuz"&&marcaLampara!="FelipeLamparas"){
+                                descuento=0.95;
+                            } else {
+                                if(cantidadLampara<=2){
+                                    descuento=1;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
-    importeFinal=(cantidadLampara*precioLampara)*descuento;
-    document.getElementById("precioDescuento").value=importeFinal;
+    importeTotal=(cantidadLampara*precioLampara)*descuento;
+    ingresoBruto=importeTotal*0.10;
+
+    if(importeTotal>=120){
+        importeFinal=importeTotal+ingresoBruto;
+        document.getElementById("precioDescuento").value=importeFinal;
+        alert("Usted pagó "+ingresoBruto+" de ingresos brutos");        
+    } else {
+        document.getElementById("precioDescuento").value=importeTotal;
+    }
 }

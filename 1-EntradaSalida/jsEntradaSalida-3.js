@@ -5,9 +5,13 @@ function mostrar()
     var dato;
     
     dato = document.getElementById("elNombre").value;
+    dato=parseInt(dato);
 
-    alert (dato);
-	
+    dato=8*5;
+    descuento=1;
+    dato=dato*descuento;
+
+    alert(dato);
 }
 
 
