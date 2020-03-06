@@ -5,7 +5,8 @@ mostrara el texto de un color entre los 6 posibles
  el botón correcto se informara cuanto tiempo tardo.
 */
 var ColorSecreto;
-var tiempoInicio;
+var colorParametro;
+var tiempoInicio = new Date;
 function comenzar()
 {
     var colorElegido;
@@ -18,18 +19,24 @@ function comenzar()
     random = Math.floor(Math.random()*(max-min))+min;
 
     switch(random){
-        case "1": 
+        case 1: 
         ColorSecreto="Azul";
-        case "2":
+        break;
+        case 2:
         ColorSecreto="Amarillo";
-        case "3":
+        break;
+        case 3:
         ColorSecreto="Marron";
-        case "4":
+        break;
+        case 4:
         ColorSecreto="Verde";
-        case "5":
+        break;
+        case 5:
         ColorSecreto="Celeste";
-        case "6":
+        break;
+        case 6:
         ColorSecreto="Rojo";
+        break;
     }
 
 document.getElementById("ColorElejido").value = ColorSecreto;
@@ -47,6 +54,8 @@ function Responder(colorParametro)
 
     if(colorParametro==ColorSecreto){
         alert("Gano y tardó "+tiempo+" segundos.");
+    } else {
+        alert("Usted perdio");
     }
 	
 	
